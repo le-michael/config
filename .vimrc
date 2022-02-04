@@ -57,3 +57,4 @@ autocmd BufNewFile,BufRead *.inu set filetype=yaml
 " Vimwiki
 hi VimwikiHeader1 ctermfg=3 cterm=bold gui=bold
 hi VimwikiHeader2 ctermfg=5 cterm=bold gui=bold
+hi VimwikiHeader3 ctermfg=6 cterm=bold gui=bold
