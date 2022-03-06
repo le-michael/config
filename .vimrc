@@ -36,7 +36,7 @@ hi DiffChange ctermbg=0 ctermfg=4
 hi DiffDelete ctermbg=0 ctermfg=1
 
 " Gutter config
-set signcolumn=yes:1
+set signcolumn=yes
 set number
 
 " Go Hotkeys
