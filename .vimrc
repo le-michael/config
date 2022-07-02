@@ -57,7 +57,7 @@ hi NERDTreeFlags ctermfg=7
 " CoC Hotkeys
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>f  <Plug>(coc-format) :w<CR>
-vmap <leader>f  <Plug>(coc-format-selecteaz) 
+vmap <leader>f  <Plug>(coc-format-selected) 
 
 " Inu files
 autocmd BufNewFile,BufRead *.inu set syntax=yaml
@@ -95,6 +95,8 @@ function! VimwikiLinkHandler(link)
 		return 1
 	endif
 endfunction
+
+nmap <leader>no :tabe ~/notes/index.wiki<CR>
 
 " Enable mouse
 set mouse=a
