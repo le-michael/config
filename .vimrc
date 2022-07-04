@@ -57,6 +57,9 @@ map <Leader>pp :Files <Esc>
 map <Leader>p :GFiles <Esc>
 map <Leader>rs :source ~/.vimrc<Esc>
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gf <Plug>(coc-references)
+
 " Hilights      
 hi SignColumn ctermbg=0
 hi DiffAdd ctermbg=0 ctermfg=2
