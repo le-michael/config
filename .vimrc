@@ -60,7 +60,7 @@ map <Leader>rs :source ~/.vimrc<Esc>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gf <Plug>(coc-references)
 
-" Hilights      
+" Highlights      
 hi SignColumn ctermbg=0
 hi DiffAdd ctermbg=0 ctermfg=2
 hi DiffChange ctermbg=0 ctermfg=4
