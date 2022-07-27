@@ -31,6 +31,6 @@ https://ohmyz.sh/
   ],
   "foreground": "#d0d0d0",
   "background": "#000000",
-	"backgroundAlt": "#191929"
+  "backgroundAlt": "#191929"
 }
 ```
