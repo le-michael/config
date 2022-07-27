@@ -1,0 +1,165 @@
+[colors]
+;alt #191929
+;background = ${xrdb:color0:#222}
+background = #20202A
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #cc00ff
+secondary = #00ffff
+alert = #bd2c40
+
+[bar/michaeltle]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 24px
+radius = 0
+fixed-center = false
+
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "JetbrainsMonoNL Nerd Font Mono:style=Bold:size=10;2"
+font-1 = "JetbrainsMonoNL Nerd Font Mono:style=Bold:size=16;3"
+
+modules-left = i3
+modules-right = memory cpu battery date
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+; label-separator = |
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.secondary}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = %{T2} %{T-}
+format-prefix-foreground = ${colors.secondary}
+label = %percentage_used%%
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%Y-%m-%d"
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = %{T2} %{T-}
+format-prefix-foreground = ${colors.secondary}
+
+label = %date% %time%
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <animation-discharging> <label-discharging>
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.secondary}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.secondary}
+
+animation-charging-0 = A
+animation-charging-1 = B
+animation-charging-2 = C
+animation-charging-foreground = ${colors.secondary}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.secondary}
+animation-discharging-framerate = 750
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
