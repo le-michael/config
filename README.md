@@ -30,6 +30,7 @@ https://ohmyz.sh/
     "#ffffff"  // white
   ],
   "foreground": "#d0d0d0",
-  "background": "#000000"
+  "background": "#000000",
+	"backgroundAlt": "#191929"
 }
 ```
