@@ -172,4 +172,22 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
+[network-base]
+type = internal/network
+interval = 5
+
+format-connected = %{T2}%{F#0FF}%{F-}%{T-} <label-connected>
+format-disconnected = <label-disconnected>
+label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
+
+[module/wlan]
+inherit = network-base
+interface-type = wireless
+label-connected =   %signal%% %essid% %local_ip%  %downspeed% 祝 %upspeed%
+
+[module/eth]
+inherit = network-base
+interface-type = wired
+label-connected = %{F#F0C674}%ifname%%{F-}   %local_ip%
+
 ; vim:ft=dosini
