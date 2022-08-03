@@ -75,3 +75,6 @@ hi VimwikiHeader3 ctermfg=6 cterm=bold gui=bold
 hi NERDTreeFlags ctermfg=7
 
 hi Pmenu ctermbg=236 ctermfg=8
+
+" Use tab to auto complete instead of <C-y>
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
