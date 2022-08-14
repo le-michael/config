@@ -40,7 +40,7 @@ font-0 = "JetbrainsMonoNL Nerd Font Mono:style=Bold:size=10;2"
 font-1 = "JetbrainsMonoNL Nerd Font Mono:style=Bold:size=16;3"
 
 modules-left = i3
-modules-right = memory cpu battery date
+modules-right = filesystem memory cpu battery date
 
 tray-position = right
 tray-padding = 2
@@ -191,5 +191,24 @@ label-connected =   %signal%% %essid% %local_ip%  %downspeed% 祝 %upspeed%
 inherit = network-base
 interface-type = wired
 label-connected = %{F#F0C674}%ifname%%{F-}   %local_ip%
+
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 10
+
+; Display fixed precision values
+; Default: false
+fixed-values = true 
+
+label-mounted = %{F#0FF}%{F-} %free%/%total%
+
+; Default: 90
+; New in version 3.6.0
 
 ; vim:ft=dosini
