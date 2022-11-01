@@ -4,7 +4,6 @@ syntax on
 
 call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'honza/vim-snippets'
 
     Plug 'vim-airline/vim-airline'
     Plug 'mhinz/vim-signify'
@@ -13,10 +12,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
 
 	Plug 'preservim/nerdtree'
-
-	Plug 'vimwiki/vimwiki'
-
-	Plug 'rust-lang/rust.vim'
 
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -35,14 +30,6 @@ set signcolumn=yes
 set number relativenumber
 
 let g:NERDTreeWinPos = "right"
-
-autocmd FileType vimwiki set tabstop=2
-autocmd FileType vimwiki set shiftwidth=2
-
-let wiki = {}
-let wiki.path = '~/notes'
-let wiki.nested_syntaxes = {'python': 'python'}
-let g:vimwiki_list = [wiki]
 
 " Maps 
 nmap <leader>no :tabe ~/notes/index.wiki<CR>
@@ -63,10 +50,10 @@ nmap <silent> gf <Plug>(coc-references)
 nmap <Leader>zf viBhzf
 
 " Highlights      
-hi SignColumn ctermbg=0
-hi DiffAdd ctermbg=0 ctermfg=2
-hi DiffChange ctermbg=0 ctermfg=4
-hi DiffDelete ctermbg=0 ctermfg=1
+hi SignColumn ctermbg=None
+hi DiffAdd ctermbg=None ctermfg=2
+hi DiffChange ctermbg=None ctermfg=4
+hi DiffDelete ctermbg=None ctermfg=1
 
 hi VimwikiHeader1 ctermfg=3 cterm=bold gui=bold
 hi VimwikiHeader2 ctermfg=5 cterm=bold gui=bold
@@ -74,7 +61,17 @@ hi VimwikiHeader3 ctermfg=6 cterm=bold gui=bold
 
 hi NERDTreeFlags ctermfg=7
 
-hi Pmenu ctermbg=236 ctermfg=8
+" hi Pmenu ctermbg=236 ctermfg=8
 
 " Use tab to auto complete instead of <C-y>
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
+
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
