@@ -3,24 +3,19 @@ filetype plugin on
 syntax on
 
 call plug#begin('~/.vim/plugged')
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
-    Plug 'mhinz/vim-signify'
-   
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+	Plug 'mhinz/vim-signify'
+
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 
 	Plug 'preservim/nerdtree'
 
 	Plug 'nvim-lua/plenary.nvim'
-
-	Plug 'kyazdani42/nvim-web-devicons'
-	" Plug 'romgrk/barbar.nvim'
-
-	Plug 'nvim-tree/nvim-tree.lua'
 
 	Plug 'le-michael/flatbuffer.vim'
 call plug#end()
@@ -29,8 +24,7 @@ call plug#end()
 set mouse=a
 set encoding=UTF-8
 
-set wildmenu
-set wildmode=longest:list,full
+set wildmenu wildoptions=pum
 
 set tabstop=4
 set shiftwidth=4
@@ -40,16 +34,23 @@ set number relativenumber
 
 let g:NERDTreeWinPos = "right"
 
-autocmd VimEnter * AirlineTheme kolor
+autocmd VimEnter * AirlineTheme serene
 
 set fillchars+=vert:\│
 
-" Maps 
+let NERDTreeMinimalUI=1
+
+set showtabline=2
+
+au InsertEnter * set cursorline
+au InsertLeave * set nocursorline
+
+" Maps
 nmap <leader>no :tabe ~/notes/index.wiki<CR>
 
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>f  <Plug>(coc-format) :w<CR>
-vmap <leader>f  <Plug>(coc-format-selected) 
+vmap <leader>f  <Plug>(coc-format-selected)
 
 map <C-e> :NERDTreeToggle <Esc>
 
@@ -62,7 +63,7 @@ nmap <silent> gf <Plug>(coc-references)
 
 nmap <Leader>zf viBhzf
 
-" Highlights      
+" Highlights
 hi SignColumn ctermbg=None
 hi DiffAdd ctermbg=None ctermfg=2
 hi DiffChange ctermbg=None ctermfg=4
@@ -76,7 +77,7 @@ hi NERDTreeFlags ctermfg=7
 hi Search ctermbg=14
 
 hi Pmenu ctermbg=233 ctermfg=8
-hi PmenuSel ctermbg=236 ctermfg=8
+hi PmenuSel ctermbg=236 ctermfg=6
 
 hi vertsplit ctermfg=234
 
@@ -84,15 +85,19 @@ hi TablineSel cterm=underline ctermfg=6 ctermbg=none
 hi TablineFill cterm=underline ctermfg=234 ctermbg=none
 hi Tabline cterm=underline ctermfg=240 ctermbg=none
 
+hi EndOfBuffer ctermfg=236
+
+hi StatusLine cterm=bold ctermbg=234
+
 " Use tab to auto complete instead of <C-y>
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
+	if CocAction('hasProvider', 'hover')
+		call CocActionAsync('doHover')
+	else
+		call feedkeys('K', 'in')
+	endif
 endfunction
