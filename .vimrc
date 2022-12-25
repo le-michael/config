@@ -64,10 +64,10 @@ nmap <silent> gf <Plug>(coc-references)
 nmap <Leader>zf viBhzf
 
 " Highlights
-hi SignColumn ctermbg=None
-hi DiffAdd ctermbg=None ctermfg=2
-hi DiffChange ctermbg=None ctermfg=4
-hi DiffDelete ctermbg=None ctermfg=1
+hi SignColumn ctermbg=none
+hi DiffAdd ctermbg=none ctermfg=2
+hi DiffChange ctermbg=none ctermfg=4
+hi DiffDelete ctermbg=none ctermfg=1
 
 hi VimwikiHeader1 ctermfg=3 cterm=bold gui=bold
 hi VimwikiHeader2 ctermfg=5 cterm=bold gui=bold
@@ -79,7 +79,7 @@ hi Search ctermbg=14
 hi Pmenu ctermbg=233 ctermfg=8
 hi PmenuSel ctermbg=236 ctermfg=6
 
-hi vertsplit ctermfg=234
+hi VertSplit ctermfg=234
 
 hi TablineSel cterm=underline ctermfg=6 ctermbg=none
 hi TablineFill cterm=underline ctermfg=234 ctermbg=none
