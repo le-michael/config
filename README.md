@@ -1,5 +1,14 @@
 # Linux setup
 
+## Symlinks
+
+```bash
+# if using vim 
+ln -s $HOME/config/.vimrc $HOME/.vimrc
+# if using nvim
+ln -s $HOME/config/.vimrc $HOME/.config/nvim/init.vim
+```
+
 ## Jetbrains NF
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono
 
