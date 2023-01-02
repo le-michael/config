@@ -18,6 +18,9 @@ call plug#begin('~/.vim/plugged')
 	Plug 'nvim-lua/plenary.nvim'
 
 	Plug 'le-michael/flatbuffer.vim'
+
+	Plug 'jbyuki/venn.nvim'
+	Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " Options
@@ -45,6 +48,8 @@ set showtabline=2
 au InsertEnter * set cursorline
 au InsertLeave * set nocursorline
 
+autocmd FileType vimwiki set virtualedit=all
+
 " Maps
 nmap <leader>no :tabe ~/notes/index.wiki<CR>
 
@@ -62,6 +67,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gf <Plug>(coc-references)
 
 nmap <Leader>zf viBhzf
+vmap <silent>vb :VBox<CR>
 
 " Highlights
 hi SignColumn ctermbg=none
@@ -88,6 +94,7 @@ hi Tabline cterm=underline ctermfg=240 ctermbg=none
 hi EndOfBuffer ctermfg=236
 
 hi StatusLine cterm=bold ctermbg=234
+hi ColorColumn ctermbg=232
 
 " Use tab to auto complete instead of <C-y>
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
@@ -99,5 +106,14 @@ function! ShowDocumentation()
 		call CocActionAsync('doHover')
 	else
 		call feedkeys('K', 'in')
+	endif
+endfunction
+
+nmap <silent> sg :call ToggleColGuide()<CR>
+function! ToggleColGuide()
+	if &colorcolumn == ""
+        set colorcolumn=80
+	else
+        set colorcolumn=""
 	endif
 endfunction
