@@ -50,6 +50,8 @@ au InsertLeave * set nocursorline
 
 autocmd FileType vimwiki set virtualedit=all
 
+set autoread
+
 " Maps
 nmap <leader>no :tabe ~/notes/index.wiki<CR>
 
