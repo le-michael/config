@@ -58,6 +58,8 @@ nmap <leader>no :tabe ~/notes/index.wiki<CR>
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>f  <Plug>(coc-format) :w<CR>
 vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>wa  :wa<CR>
+nmap <leader>q  :q<CR>
 
 map <C-e> :NERDTreeToggle <Esc>
 
