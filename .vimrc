@@ -5,8 +5,8 @@ syntax on
 call plug#begin('~/.vim/plugged')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
+	 Plug 'vim-airline/vim-airline'
+	 Plug 'vim-airline/vim-airline-themes'
 
 	Plug 'mhinz/vim-signify'
 
@@ -19,8 +19,12 @@ call plug#begin('~/.vim/plugged')
 
 	Plug 'le-michael/flatbuffer.vim'
 
-	Plug 'jbyuki/venn.nvim'
-	Plug 'vimwiki/vimwiki'
+"	Plug 'jbyuki/venn.nvim'
+"	Plug 'vimwiki/vimwiki'
+
+	Plug 'ledger/vim-ledger'
+
+	Plug 'tpope/vim-abolish'
 call plug#end()
 
 " Options
@@ -48,16 +52,27 @@ set showtabline=2
 au InsertEnter * set cursorline
 au InsertLeave * set nocursorline
 
-autocmd FileType vimwiki set virtualedit=all
+"autocmd FileType vimwiki set virtualedit=all
 
 set autoread
 
+if exists(":DiffOrig") != 2
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+        \ | diffthis | wincmd p | diffthis
+endif
+
 " Maps
 nmap <leader>no :tabe ~/notes/index.wiki<CR>
-
+nmap <leader>x :x<CR>
+nmap <leader>q :qa<CR>
+nmap <leader>s :wa<CR>
 nmap <leader>rn <Plug>(coc-rename)
+
 nmap <leader>f  <Plug>(coc-format) :w<CR>
 vmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 map <C-e> :NERDTreeToggle <Esc>
 
@@ -68,8 +83,8 @@ map <Leader>rs :source ~/.vimrc<Esc>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gf <Plug>(coc-references)
 
-nmap <Leader>zf viBhzf
-vmap <silent>vb :VBox<CR>
+"nmap <Leader>zf viBhzf
+"vmap <silent>vb :VBox<CR>
 
 " Highlights
 hi SignColumn ctermbg=none
