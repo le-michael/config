@@ -73,6 +73,8 @@ vmap <leader>f  <Plug>(coc-format-selected)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+nmap <leader>wa  :wa<CR>
+nmap <leader>q  :q<CR>
 
 map <C-e> :NERDTreeToggle <Esc>
 
