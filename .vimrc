@@ -25,6 +25,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'ledger/vim-ledger'
 
 	Plug 'tpope/vim-abolish'
+
+    Plug 'folke/tokyonight.nvim'
 call plug#end()
 
 " Options
@@ -41,7 +43,7 @@ set number relativenumber
 
 let g:NERDTreeWinPos = "right"
 
-autocmd VimEnter * AirlineTheme serene
+autocmd VimEnter * AirlineTheme monochrome
 
 set fillchars+=vert:\│
 
@@ -75,6 +77,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 nmap <leader>wa  :wa<CR>
 nmap <leader>q  :q<CR>
+nmap <leader>qa  :qa<CR>
 
 map <C-e> :NERDTreeToggle <Esc>
 
@@ -88,32 +91,35 @@ nmap <silent> gf <Plug>(coc-references)
 "nmap <Leader>zf viBhzf
 "vmap <silent>vb :VBox<CR>
 
+colorscheme tokyonight-night
+
 " Highlights
-hi SignColumn ctermbg=none
-hi DiffAdd ctermbg=none ctermfg=2
-hi DiffChange ctermbg=none ctermfg=4
-hi DiffDelete ctermbg=none ctermfg=1
+"hi SignColumn ctermbg=none
+"hi DiffAdd ctermbg=none ctermfg=2
+"hi DiffChange ctermbg=none ctermfg=4
+"hi DiffDelete ctermbg=none ctermfg=1
+"
+"hi VimwikiHeader1 ctermfg=3 cterm=bold gui=bold
+"hi VimwikiHeader2 ctermfg=5 cterm=bold gui=bold
+"hi VimwikiHeader3 ctermfg=6 cterm=bold gui=bold
+"
+"hi NERDTreeFlags ctermfg=7
+"hi Search ctermbg=14
+"
+"hi Pmenu ctermbg=233 ctermfg=8
+"hi PmenuSel ctermbg=236 ctermfg=6
+"
+"hi VertSplit ctermfg=234
+"
+"hi TablineSel cterm=underline ctermfg=6 ctermbg=none
+"hi TablineFill cterm=underline ctermfg=234 ctermbg=none
+"hi Tabline cterm=underline ctermfg=240 ctermbg=none
+"
+"hi EndOfBuffer ctermfg=236
+"
+"hi StatusLine cterm=bold ctermbg=234
+"hi ColorColumn ctermbg=232
 
-hi VimwikiHeader1 ctermfg=3 cterm=bold gui=bold
-hi VimwikiHeader2 ctermfg=5 cterm=bold gui=bold
-hi VimwikiHeader3 ctermfg=6 cterm=bold gui=bold
-
-hi NERDTreeFlags ctermfg=7
-hi Search ctermbg=14
-
-hi Pmenu ctermbg=233 ctermfg=8
-hi PmenuSel ctermbg=236 ctermfg=6
-
-hi VertSplit ctermfg=234
-
-hi TablineSel cterm=underline ctermfg=6 ctermbg=none
-hi TablineFill cterm=underline ctermfg=234 ctermbg=none
-hi Tabline cterm=underline ctermfg=240 ctermbg=none
-
-hi EndOfBuffer ctermfg=236
-
-hi StatusLine cterm=bold ctermbg=234
-hi ColorColumn ctermbg=232
 
 " Use tab to auto complete instead of <C-y>
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
@@ -136,3 +142,4 @@ function! ToggleColGuide()
         set colorcolumn=""
 	endif
 endfunction
+
