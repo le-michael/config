@@ -7,6 +7,10 @@
 ln -s $HOME/config/.vimrc $HOME/.vimrc
 # if using nvim
 ln -s $HOME/config/.vimrc $HOME/.config/nvim/init.vim
+
+# Kitty #
+ln -s $HOME/config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
+ln -s $HOME/config/kitty/tokyo.conf $HOME/.config/kitty/tokyo.conf
 ```
 
 ## Jetbrains NF
