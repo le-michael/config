@@ -21,10 +21,6 @@ vim.cmd [[
 		Plug 'EdenEast/nightfox.nvim'
 
 		Plug 'le-michael/flatbuffer.vim'
-
-		Plug 'folke/tokyonight.nvim'
-
-		Plug 'huggingface/llm.nvim'
 	call plug#end()
 
 	" Options
@@ -51,8 +47,6 @@ vim.cmd [[
 
 	au InsertEnter * set cursorline
 	au InsertLeave * set nocursorline
-
-	"autocmd FileType vimwiki set virtualedit=all
 
 	set autoread
 
