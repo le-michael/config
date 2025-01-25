@@ -3,10 +3,8 @@
 ## Symlinks
 
 ```bash
-# if using vim 
-ln -s $HOME/config/.vimrc $HOME/.vimrc
-# if using nvim
-ln -s $HOME/config/.vimrc $HOME/.config/nvim/init.vim
+# nvim #
+ln -s $HOME/config/nvim/init.lua $HOME/.config/nvim/init.lua
 
 # Kitty #
 ln -s $HOME/config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
