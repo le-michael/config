@@ -21,6 +21,18 @@ vim.cmd [[
 		Plug 'EdenEast/nightfox.nvim'
 
 		Plug 'le-michael/flatbuffer.vim'
+
+		Plug 'ron-rs/ron.vim'
+
+		Plug 'folke/tokyonight.nvim'
+
+		" Deps
+		Plug 'nvim-treesitter/nvim-treesitter'
+		Plug 'stevearc/dressing.nvim'
+		Plug 'MunifTanjim/nui.nvim'
+		Plug 'MeanderingProgrammer/render-markdown.nvim'
+
+		Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 	call plug#end()
 
 	" Options
@@ -75,7 +87,7 @@ vim.cmd [[
 	nmap <silent> gd <Plug>(coc-definition)
 	nmap <silent> gf <Plug>(coc-references)
 
-	colorscheme terafox
+	colorscheme carbonfox
 
 	" Use tab to auto complete instead of <C-y>
 	inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
@@ -99,3 +111,15 @@ vim.cmd [[
 		endif
 	endfunction
 ]]
+
+require('avante').setup({
+	provider = "gemini",
+	gemini = {
+		model = "gemini-2.5-flash-preview-05-20"
+	},
+	web_search_engine = {
+		provider = "google"
+	},
+})
+
+vim.opt.laststatus = 3
