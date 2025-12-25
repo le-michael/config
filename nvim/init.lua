@@ -28,11 +28,6 @@ vim.cmd [[
 
 		" Deps
 		Plug 'nvim-treesitter/nvim-treesitter'
-		Plug 'stevearc/dressing.nvim'
-		Plug 'MunifTanjim/nui.nvim'
-		Plug 'MeanderingProgrammer/render-markdown.nvim'
-
-		Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 	call plug#end()
 
 	" Options
@@ -112,14 +107,27 @@ vim.cmd [[
 	endfunction
 ]]
 
-require('avante').setup({
-	provider = "gemini",
-	gemini = {
-		model = "gemini-2.5-flash-preview-05-20"
-	},
-	web_search_engine = {
-		provider = "google"
-	},
-})
-
 vim.opt.laststatus = 3
+
+
+-- Create an autocommand group for organization
+local markdown_group = vim.api.nvim_create_augroup("MarkdownWrap", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = markdown_group,
+  pattern = "markdown",
+  callback = function()
+    -- Set the hard limit to 80 characters
+    vim.opt_local.textwidth = 80
+    
+    -- t: auto-wrap text using textwidth
+    -- c: auto-wrap comments
+    -- q: allow formatting with 'gq'
+    -- n: recognize numbered lists
+    -- j: remove comment leader when joining lines
+    vim.opt_local.formatoptions = "tcqnj"
+    
+    -- Optional: Add a visual ruler at 80 columns
+    vim.opt_local.colorcolumn = "80"
+  end,
+})
